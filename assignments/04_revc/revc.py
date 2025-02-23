@@ -54,7 +54,7 @@ def read_dna_input(input_str):
 
 
 def main():
-    """Main function that processes input and prints the reverse complement"""
+    """Main function that takes an input and prints the reverse complement"""
     args = get_args()
     dna = read_dna_input(args.DNA)
     revc = reverse_complement(dna)
