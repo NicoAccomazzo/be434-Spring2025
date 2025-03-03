@@ -48,8 +48,21 @@ def read_fasta(file):
 # --------------------------------------------------
 def gc_content(sequence):
     """Calculate GC content percentage of a sequence"""
-    gc_count = sum(1 for base in sequence if base in "GCgc")
-    return (gc_count / len(sequence)) * 100 if sequence else 0
+
+    gc_bases = {"G", "C", "g", "c"}
+    gc_count = 0
+    total_length = len(sequence)
+
+    for base in sequence:
+        if base in gc_bases:
+            gc_count += 1
+
+    if total_length == 0:
+        return 0.0
+
+    gc_percentage = (gc_count / total_length) * 100
+
+    return gc_percentage
 
 
 # --------------------------------------------------
